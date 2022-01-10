@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B57FE7C5278C6D8100857FDE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B57FE7C4278C6D8100857FDE /* RxCocoa */; };
+		B57FE7C7278C6D8100857FDE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B57FE7C6278C6D8100857FDE /* RxRelay */; };
+		B57FE7C9278C6D8100857FDE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B57FE7C8278C6D8100857FDE /* RxSwift */; };
+		B57FE7CC278C6EB400857FDE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B57FE7CB278C6EB400857FDE /* Kingfisher */; };
 		B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587245F278C5F1200178E42 /* AppDelegate.swift */; };
 		B5872464278C5F1200178E42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5872463278C5F1200178E42 /* ViewController.swift */; };
 		B5872467278C5F1200178E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5872465278C5F1200178E42 /* Main.storyboard */; };
@@ -15,6 +19,8 @@
 		B5872477278C5F1300178E42 /* HappyFilmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5872476278C5F1300178E42 /* HappyFilmsTests.swift */; };
 		B5872481278C5F1300178E42 /* HappyFilmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5872480278C5F1300178E42 /* HappyFilmsUITests.swift */; };
 		B5872483278C5F1300178E42 /* HappyFilmsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5872482278C5F1300178E42 /* HappyFilmsUITestsLaunchTests.swift */; };
+		B5872491278C64A500178E42 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B5872490278C64A500178E42 /* Alamofire */; };
+		B58724AD278C6C0000178E42 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = B58724AC278C6C0000178E42 /* RxSwiftExt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57FE7CC278C6EB400857FDE /* Kingfisher in Frameworks */,
+				B57FE7C5278C6D8100857FDE /* RxCocoa in Frameworks */,
+				B5872491278C64A500178E42 /* Alamofire in Frameworks */,
+				B57FE7C9278C6D8100857FDE /* RxSwift in Frameworks */,
+				B57FE7C7278C6D8100857FDE /* RxRelay in Frameworks */,
+				B58724AD278C6C0000178E42 /* RxSwiftExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +152,14 @@
 			dependencies = (
 			);
 			name = HappyFilms;
+			packageProductDependencies = (
+				B5872490278C64A500178E42 /* Alamofire */,
+				B58724AC278C6C0000178E42 /* RxSwiftExt */,
+				B57FE7C4278C6D8100857FDE /* RxCocoa */,
+				B57FE7C6278C6D8100857FDE /* RxRelay */,
+				B57FE7C8278C6D8100857FDE /* RxSwift */,
+				B57FE7CB278C6EB400857FDE /* Kingfisher */,
+			);
 			productName = HappyFilms;
 			productReference = B587245C278C5F1200178E42 /* HappyFilms.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +232,12 @@
 				Base,
 			);
 			mainGroup = B5872453278C5F1200178E42;
+			packageReferences = (
+				B587248F278C64A400178E42 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B58724AB278C6C0000178E42 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
+				B57FE7C3278C6D8100857FDE /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B57FE7CA278C6EB400857FDE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = B587245D278C5F1200178E42 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -431,11 +457,13 @@
 		B5872487278C5F1300178E42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RPXQPWQ755;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFilms/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -459,11 +487,13 @@
 		B5872488278C5F1300178E42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RPXQPWQ755;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFilms/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -600,6 +630,74 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B57FE7C3278C6D8100857FDE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 6.2.0;
+			};
+		};
+		B57FE7CA278C6EB400857FDE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.1.2;
+			};
+		};
+		B587248F278C64A400178E42 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.5.0;
+			};
+		};
+		B58724AB278C6C0000178E42 /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
+			requirement = {
+				kind = exactVersion;
+				version = 6.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B57FE7C4278C6D8100857FDE /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B57FE7C3278C6D8100857FDE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B57FE7C6278C6D8100857FDE /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B57FE7C3278C6D8100857FDE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B57FE7C8278C6D8100857FDE /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B57FE7C3278C6D8100857FDE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		B57FE7CB278C6EB400857FDE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B57FE7CA278C6EB400857FDE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		B5872490278C64A500178E42 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B587248F278C64A400178E42 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B58724AC278C6C0000178E42 /* RxSwiftExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B58724AB278C6C0000178E42 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
+			productName = RxSwiftExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5872454278C5F1200178E42 /* Project object */;
 }
