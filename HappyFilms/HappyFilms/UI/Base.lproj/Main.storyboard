@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aX-Uy-Bqs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="TmF-Co-ftq">
+            <objects>
+                <viewController id="PHN-mR-QBc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Cv-qK-9TN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="e2v-VI-NL4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="h1x-CM-kOq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Fh-gA-MuL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="119"/>
+        </scene>
+        <!--기록-->
+        <scene sceneID="auL-MN-atR">
+            <objects>
+                <viewController id="wn5-gn-usI" customClass="MyFilmsNoteViewController" customModule="HappyFilms" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UPC-Vz-m7i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eQL-Xh-cq1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qub-Q2-aSE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eQL-Xh-cq1" firstAttribute="leading" secondItem="qub-Q2-aSE" secondAttribute="leading" id="Ifn-Hk-t85"/>
+                            <constraint firstItem="eQL-Xh-cq1" firstAttribute="trailing" secondItem="qub-Q2-aSE" secondAttribute="trailing" id="RSF-Lp-e4U"/>
+                            <constraint firstItem="eQL-Xh-cq1" firstAttribute="bottom" secondItem="qub-Q2-aSE" secondAttribute="bottom" id="b15-PH-L6h"/>
+                            <constraint firstItem="eQL-Xh-cq1" firstAttribute="top" secondItem="qub-Q2-aSE" secondAttribute="top" id="eoK-tI-PGf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="기록" image="note.text" catalog="system" id="PLt-Pj-Okl"/>
+                    <connections>
+                        <outlet property="tableView" destination="eQL-Xh-cq1" id="6cC-Gm-93C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVA-EQ-JrH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873.91304347826099" y="-488.16964285714283"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="A7X-DK-t6a">
+            <objects>
+                <tabBarController id="2aX-Uy-Bqs" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tEn-vf-G5B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wn5-gn-usI" kind="relationship" relationship="viewControllers" id="WvP-LQ-tpj"/>
+                        <segue destination="PHN-mR-QBc" kind="relationship" relationship="viewControllers" id="kjr-7G-ytN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9o-SD-Qjr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15" y="-184"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="note.text" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

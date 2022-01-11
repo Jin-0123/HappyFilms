@@ -15,8 +15,14 @@
 		B57FE7D0278C9D7200857FDE /* FilmsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7CF278C9D7200857FDE /* FilmsDTO.swift */; };
 		B57FE7D2278C9D8C00857FDE /* NaverSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7D1278C9D8C00857FDE /* NaverSearchAPI.swift */; };
 		B57FE7D4278C9DA700857FDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7D3278C9DA700857FDE /* Response.swift */; };
+		B57FE7D9278DB4C700857FDE /* MyFilmsNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7D8278DB4C700857FDE /* MyFilmsNoteViewController.swift */; };
+		B57FE7DC278DBA0600857FDE /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7DB278DBA0500857FDE /* ViewModelType.swift */; };
+		B57FE7DE278DBAF200857FDE /* MyFilmsNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7DD278DBAF200857FDE /* MyFilmsNoteViewModel.swift */; };
+		B57FE7E0278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7DF278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift */; };
+		B57FE7E3278DC66300857FDE /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7E2278DC66300857FDE /* UIKitExtensions.swift */; };
+		B57FE7E9278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B57FE7E7278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib */; };
+		B57FE7EB278DCDD000857FDE /* CommonTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7EA278DCDD000857FDE /* CommonTableHeaderView.swift */; };
 		B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587245F278C5F1200178E42 /* AppDelegate.swift */; };
-		B5872464278C5F1200178E42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5872463278C5F1200178E42 /* ViewController.swift */; };
 		B5872467278C5F1200178E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5872465278C5F1200178E42 /* Main.storyboard */; };
 		B5872469278C5F1300178E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5872468278C5F1300178E42 /* Assets.xcassets */; };
 		B587246C278C5F1300178E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B587246A278C5F1300178E42 /* LaunchScreen.storyboard */; };
@@ -49,9 +55,15 @@
 		B57FE7CF278C9D7200857FDE /* FilmsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsDTO.swift; sourceTree = "<group>"; };
 		B57FE7D1278C9D8C00857FDE /* NaverSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverSearchAPI.swift; sourceTree = "<group>"; };
 		B57FE7D3278C9DA700857FDE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		B57FE7D8278DB4C700857FDE /* MyFilmsNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFilmsNoteViewController.swift; sourceTree = "<group>"; };
+		B57FE7DB278DBA0500857FDE /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		B57FE7DD278DBAF200857FDE /* MyFilmsNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFilmsNoteViewModel.swift; sourceTree = "<group>"; };
+		B57FE7DF278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFilmsNoteTableViewCell.swift; sourceTree = "<group>"; };
+		B57FE7E2278DC66300857FDE /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		B57FE7E7278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFilmsNoteTableViewCell.xib; sourceTree = "<group>"; };
+		B57FE7EA278DCDD000857FDE /* CommonTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableHeaderView.swift; sourceTree = "<group>"; };
 		B587245C278C5F1200178E42 /* HappyFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B587245F278C5F1200178E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5872463278C5F1200178E42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5872466278C5F1200178E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5872468278C5F1300178E42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B587246B278C5F1300178E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,6 +117,35 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		B57FE7D7278DB34800857FDE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B5872465278C5F1200178E42 /* Main.storyboard */,
+				B57FE7EA278DCDD000857FDE /* CommonTableHeaderView.swift */,
+				B57FE7D8278DB4C700857FDE /* MyFilmsNoteViewController.swift */,
+				B57FE7DF278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift */,
+				B57FE7E7278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B57FE7DA278DB9B300857FDE /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				B57FE7DB278DBA0500857FDE /* ViewModelType.swift */,
+				B57FE7DD278DBAF200857FDE /* MyFilmsNoteViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		B57FE7E1278DC4CA00857FDE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B57FE7E2278DC66300857FDE /* UIKitExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B5872453278C5F1200178E42 = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +169,11 @@
 		B587245E278C5F1200178E42 /* HappyFilms */ = {
 			isa = PBXGroup;
 			children = (
-				B57FE7D5278C9F9B00857FDE /* API */,
 				B587245F278C5F1200178E42 /* AppDelegate.swift */,
-				B5872463278C5F1200178E42 /* ViewController.swift */,
-				B5872465278C5F1200178E42 /* Main.storyboard */,
+				B57FE7D5278C9F9B00857FDE /* API */,
+				B57FE7D7278DB34800857FDE /* UI */,
+				B57FE7DA278DB9B300857FDE /* VM */,
+				B57FE7E1278DC4CA00857FDE /* Extension */,
 				B5872468278C5F1300178E42 /* Assets.xcassets */,
 				B587246A278C5F1300178E42 /* LaunchScreen.storyboard */,
 				B587246D278C5F1300178E42 /* Info.plist */,
@@ -275,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B587246C278C5F1300178E42 /* LaunchScreen.storyboard in Resources */,
+				B57FE7E9278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib in Resources */,
 				B5872469278C5F1300178E42 /* Assets.xcassets in Resources */,
 				B5872467278C5F1200178E42 /* Main.storyboard in Resources */,
 			);
@@ -301,12 +344,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5872464278C5F1200178E42 /* ViewController.swift in Sources */,
+				B57FE7E0278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift in Sources */,
+				B57FE7DE278DBAF200857FDE /* MyFilmsNoteViewModel.swift in Sources */,
 				B57FE7CE278C71A300857FDE /* RequestBuilder.swift in Sources */,
 				B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */,
+				B57FE7E3278DC66300857FDE /* UIKitExtensions.swift in Sources */,
+				B57FE7D9278DB4C700857FDE /* MyFilmsNoteViewController.swift in Sources */,
 				B57FE7D0278C9D7200857FDE /* FilmsDTO.swift in Sources */,
 				B57FE7D4278C9DA700857FDE /* Response.swift in Sources */,
 				B57FE7D2278C9D8C00857FDE /* NaverSearchAPI.swift in Sources */,
+				B57FE7EB278DCDD000857FDE /* CommonTableHeaderView.swift in Sources */,
+				B57FE7DC278DBA0600857FDE /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
