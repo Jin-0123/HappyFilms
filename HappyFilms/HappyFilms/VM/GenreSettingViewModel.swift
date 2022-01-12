@@ -1,5 +1,5 @@
 //
-//  MyFilmsNoteViewModel.swift
+//  GenreSettingViewModel.swift
 //  HappyFilms
 //
 //  Created by JinYoung Jang on 11/1/22.
@@ -10,16 +10,20 @@ import RxCocoa
 import RxSwift
 import RxSwiftExt
 
-class MyFilmsNoteViewModel: ViewModelType {
+class GenreSettingViewModel: ViewModelType {
     
     // MARK: - implement ViewModelType
     
     enum Actions {
-        case showFilmsList(UUID)
+        case ignore
+        case refresh
+        case showAddAlert
     }
     
     struct Inputs {
-        let tapGenre: Observable<UUID>
+        let tapAdd: Observable<Void>
+        let tapAddConfirm: Observable<String>
+        let toggle: Observable<(UUID, Bool)>
     }
     
     struct State: ActionState, ErrorState {
@@ -37,10 +41,31 @@ class MyFilmsNoteViewModel: ViewModelType {
     let outputs: Outputs
     
     func bind(_ inputs: Inputs) {
-        inputs.tapGenre
-            .map { .showFilmsList($0) }
+        inputs.tapAdd
+            .map { .showAddAlert }
             .bind(to: state.action)
             .disposed(by: disposeBag)
+        
+        inputs.tapAddConfirm
+            .do(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.genresManager.add($0)
+                self.hfInteractor.setGenres(self.genresManager.genres)
+            })
+            .map { _ in .refresh }
+            .bind(to: state.action)
+            .disposed(by: disposeBag)
+        
+        inputs.toggle
+            .do(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.genresManager.toggle($0.0, isOn: $0.1)
+                self.hfInteractor.setGenres(self.genresManager.genres)
+            })
+            .map { _ in .ignore }
+            .bind(to: state.action)
+            .disposed(by: disposeBag)
+            
     }
     
     // MARK: -
@@ -57,14 +82,8 @@ class MyFilmsNoteViewModel: ViewModelType {
         state = State(action: PublishRelay(),
                       error: PublishRelay())
         
-        genresManager.fetch(hfInteractor.getGenres())
-        let genres = genresManager.genresRelay.map {
-            $0.filter { $0.isOn }
-        }
-        
-        outputs = Outputs(genres: genres.asDriver(onErrorDriveWith: .empty()),
+        outputs = Outputs(genres: genresManager.genresRelay.asDriver(onErrorDriveWith: .empty()),
                           action: state.action.asDriver(onErrorDriveWith: .empty()),
                           error: state.error.asDriver(onErrorDriveWith: .empty()))
-                
     }
 }

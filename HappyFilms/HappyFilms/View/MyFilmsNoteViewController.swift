@@ -12,7 +12,7 @@ import RxSwift
 class MyFilmsNoteViewController: UIViewController {
     private let headerView: CommonTableHeaderView = {
         let view = CommonTableHeaderView()
-        view.setTitle("나의 영화 노트")
+        view.set("나의 영화 노트")
         return view
     }()
 
@@ -24,29 +24,30 @@ class MyFilmsNoteViewController: UIViewController {
     }
     
     private let disposeBag = DisposeBag()
-    private var viewModel = MyFilmsNoteViewModel()
+    private var viewModel = HFAppDI.shared.myFilmsNoteViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupViews()
         bindViewModel()
     }
     
-    private func setupViews() {
+    private func bindViewModel() {
+        let tapGenreRelay = PublishRelay<MyFilmsNoteCellEvent>()
+        
+        // Input
+        let inputs = MyFilmsNoteViewModel.Inputs(tapGenre: tapGenreRelay.mapAt(\.id).unwrap().asObservable())
+        viewModel.bind(inputs)
+        
+        // Output
         viewModel.outputs.genres.drive(tableView.rx.items) { tableView, row, item in
             let indexPath = IndexPath(row: row, section: 0)
             let cell = tableView.dequeueReusableCell(withClass: MyFilmsNoteTableViewCell.self, for: indexPath)
-            cell.set(item)
+            cell.set(item.id, title: item.title)
+            cell.bind(to: tapGenreRelay)
             return cell
         }.disposed(by: disposeBag)
-    }
-    
-    private func bindViewModel() {
-        // Input
-        viewModel.bind(.init(tapGenre: tableView.rx.itemSelected.asObservable()))
         
-        // Output
         viewModel.outputs.action.drive(onNext: { action in
             switch action {
             case .showFilmsList(let genreId):

@@ -22,6 +22,17 @@
 		B57FE7E3278DC66300857FDE /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7E2278DC66300857FDE /* UIKitExtensions.swift */; };
 		B57FE7E9278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B57FE7E7278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib */; };
 		B57FE7EB278DCDD000857FDE /* CommonTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7EA278DCDD000857FDE /* CommonTableHeaderView.swift */; };
+		B57FE7ED278DD0A400857FDE /* GenreSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7EC278DD0A400857FDE /* GenreSettingViewController.swift */; };
+		B57FE7F1278DD18A00857FDE /* GenreSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7EF278DD18A00857FDE /* GenreSettingTableViewCell.swift */; };
+		B57FE7F2278DD18A00857FDE /* GenreSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B57FE7F0278DD18A00857FDE /* GenreSettingTableViewCell.xib */; };
+		B57FE7F4278DD84A00857FDE /* GenreSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7F3278DD84A00857FDE /* GenreSettingViewModel.swift */; };
+		B57FE7F9278EF38A00857FDE /* HFInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7F8278EF38A00857FDE /* HFInterface.swift */; };
+		B57FE7FB278EF4E000857FDE /* HFInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7FA278EF4E000857FDE /* HFInteractor.swift */; };
+		B57FE7FD278EF69B00857FDE /* HFRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7FC278EF69B00857FDE /* HFRepo.swift */; };
+		B57FE7FF278EF77500857FDE /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE7FE278EF77500857FDE /* Genre.swift */; };
+		B57FE801278EF9CD00857FDE /* HFAppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE800278EF9CD00857FDE /* HFAppDI.swift */; };
+		B57FE805278F25F800857FDE /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE804278F25F800857FDE /* Consumer.swift */; };
+		B57FE807278F266C00857FDE /* BindingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE806278F266C00857FDE /* BindingEventCell.swift */; };
 		B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587245F278C5F1200178E42 /* AppDelegate.swift */; };
 		B5872467278C5F1200178E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5872465278C5F1200178E42 /* Main.storyboard */; };
 		B5872469278C5F1300178E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5872468278C5F1300178E42 /* Assets.xcassets */; };
@@ -62,6 +73,17 @@
 		B57FE7E2278DC66300857FDE /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		B57FE7E7278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFilmsNoteTableViewCell.xib; sourceTree = "<group>"; };
 		B57FE7EA278DCDD000857FDE /* CommonTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableHeaderView.swift; sourceTree = "<group>"; };
+		B57FE7EC278DD0A400857FDE /* GenreSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSettingViewController.swift; sourceTree = "<group>"; };
+		B57FE7EF278DD18A00857FDE /* GenreSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSettingTableViewCell.swift; sourceTree = "<group>"; };
+		B57FE7F0278DD18A00857FDE /* GenreSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreSettingTableViewCell.xib; sourceTree = "<group>"; };
+		B57FE7F3278DD84A00857FDE /* GenreSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSettingViewModel.swift; sourceTree = "<group>"; };
+		B57FE7F8278EF38A00857FDE /* HFInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFInterface.swift; sourceTree = "<group>"; };
+		B57FE7FA278EF4E000857FDE /* HFInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFInteractor.swift; sourceTree = "<group>"; };
+		B57FE7FC278EF69B00857FDE /* HFRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFRepo.swift; sourceTree = "<group>"; };
+		B57FE7FE278EF77500857FDE /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		B57FE800278EF9CD00857FDE /* HFAppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFAppDI.swift; sourceTree = "<group>"; };
+		B57FE804278F25F800857FDE /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		B57FE806278F266C00857FDE /* BindingEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEventCell.swift; sourceTree = "<group>"; };
 		B587245C278C5F1200178E42 /* HappyFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B587245F278C5F1200178E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5872466278C5F1200178E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,7 +139,7 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		B57FE7D7278DB34800857FDE /* UI */ = {
+		B57FE7D7278DB34800857FDE /* View */ = {
 			isa = PBXGroup;
 			children = (
 				B5872465278C5F1200178E42 /* Main.storyboard */,
@@ -125,8 +147,11 @@
 				B57FE7D8278DB4C700857FDE /* MyFilmsNoteViewController.swift */,
 				B57FE7DF278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift */,
 				B57FE7E7278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib */,
+				B57FE7EC278DD0A400857FDE /* GenreSettingViewController.swift */,
+				B57FE7EF278DD18A00857FDE /* GenreSettingTableViewCell.swift */,
+				B57FE7F0278DD18A00857FDE /* GenreSettingTableViewCell.xib */,
 			);
-			path = UI;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B57FE7DA278DB9B300857FDE /* VM */ = {
@@ -134,16 +159,38 @@
 			children = (
 				B57FE7DB278DBA0500857FDE /* ViewModelType.swift */,
 				B57FE7DD278DBAF200857FDE /* MyFilmsNoteViewModel.swift */,
+				B57FE7F3278DD84A00857FDE /* GenreSettingViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
 		};
-		B57FE7E1278DC4CA00857FDE /* Extension */ = {
+		B57FE7E1278DC4CA00857FDE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B57FE804278F25F800857FDE /* Consumer.swift */,
+				B57FE806278F266C00857FDE /* BindingEventCell.swift */,
 				B57FE7E2278DC66300857FDE /* UIKitExtensions.swift */,
 			);
-			path = Extension;
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B57FE7EE278DD11C00857FDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B57FE7FE278EF77500857FDE /* Genre.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B57FE7F6278EF34000857FDE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B57FE800278EF9CD00857FDE /* HFAppDI.swift */,
+				B57FE7FA278EF4E000857FDE /* HFInteractor.swift */,
+				B57FE7F8278EF38A00857FDE /* HFInterface.swift */,
+				B57FE7FC278EF69B00857FDE /* HFRepo.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		B5872453278C5F1200178E42 = {
@@ -171,9 +218,11 @@
 			children = (
 				B587245F278C5F1200178E42 /* AppDelegate.swift */,
 				B57FE7D5278C9F9B00857FDE /* API */,
-				B57FE7D7278DB34800857FDE /* UI */,
+				B57FE7F6278EF34000857FDE /* Interactor */,
+				B57FE7EE278DD11C00857FDE /* Model */,
+				B57FE7D7278DB34800857FDE /* View */,
 				B57FE7DA278DB9B300857FDE /* VM */,
-				B57FE7E1278DC4CA00857FDE /* Extension */,
+				B57FE7E1278DC4CA00857FDE /* Common */,
 				B5872468278C5F1300178E42 /* Assets.xcassets */,
 				B587246A278C5F1300178E42 /* LaunchScreen.storyboard */,
 				B587246D278C5F1300178E42 /* Info.plist */,
@@ -317,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B587246C278C5F1300178E42 /* LaunchScreen.storyboard in Resources */,
+				B57FE7F2278DD18A00857FDE /* GenreSettingTableViewCell.xib in Resources */,
 				B57FE7E9278DCC4100857FDE /* MyFilmsNoteTableViewCell.xib in Resources */,
 				B5872469278C5F1300178E42 /* Assets.xcassets in Resources */,
 				B5872467278C5F1200178E42 /* Main.storyboard in Resources */,
@@ -344,14 +394,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57FE807278F266C00857FDE /* BindingEventCell.swift in Sources */,
+				B57FE7F1278DD18A00857FDE /* GenreSettingTableViewCell.swift in Sources */,
+				B57FE7FD278EF69B00857FDE /* HFRepo.swift in Sources */,
+				B57FE7F4278DD84A00857FDE /* GenreSettingViewModel.swift in Sources */,
 				B57FE7E0278DC3FE00857FDE /* MyFilmsNoteTableViewCell.swift in Sources */,
 				B57FE7DE278DBAF200857FDE /* MyFilmsNoteViewModel.swift in Sources */,
+				B57FE805278F25F800857FDE /* Consumer.swift in Sources */,
 				B57FE7CE278C71A300857FDE /* RequestBuilder.swift in Sources */,
 				B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */,
+				B57FE7FB278EF4E000857FDE /* HFInteractor.swift in Sources */,
 				B57FE7E3278DC66300857FDE /* UIKitExtensions.swift in Sources */,
+				B57FE7FF278EF77500857FDE /* Genre.swift in Sources */,
 				B57FE7D9278DB4C700857FDE /* MyFilmsNoteViewController.swift in Sources */,
+				B57FE7ED278DD0A400857FDE /* GenreSettingViewController.swift in Sources */,
 				B57FE7D0278C9D7200857FDE /* FilmsDTO.swift in Sources */,
+				B57FE801278EF9CD00857FDE /* HFAppDI.swift in Sources */,
 				B57FE7D4278C9DA700857FDE /* Response.swift in Sources */,
+				B57FE7F9278EF38A00857FDE /* HFInterface.swift in Sources */,
 				B57FE7D2278C9D8C00857FDE /* NaverSearchAPI.swift in Sources */,
 				B57FE7EB278DCDD000857FDE /* CommonTableHeaderView.swift in Sources */,
 				B57FE7DC278DBA0600857FDE /* ViewModelType.swift in Sources */,

@@ -17,6 +17,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="295.5" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8If-2J-0EQ">
+                        <rect key="frame" x="0.0" y="0.0" width="295.5" height="44"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjR-Ba-sMh">
                         <rect key="frame" x="16" y="0.0" width="263.5" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -26,14 +32,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="tjR-Ba-sMh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="9Wd-zn-SyV"/>
+                    <constraint firstAttribute="bottom" secondItem="8If-2J-0EQ" secondAttribute="bottom" id="TFD-fl-VtF"/>
+                    <constraint firstItem="8If-2J-0EQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Vta-eD-ZHl"/>
                     <constraint firstAttribute="bottom" secondItem="tjR-Ba-sMh" secondAttribute="bottom" id="ikn-Tf-GKl"/>
+                    <constraint firstItem="8If-2J-0EQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="o1u-rg-EkS"/>
+                    <constraint firstAttribute="trailing" secondItem="8If-2J-0EQ" secondAttribute="trailing" id="p3O-V5-yw4"/>
                     <constraint firstItem="tjR-Ba-sMh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tDO-hF-hfK"/>
                     <constraint firstAttribute="trailing" secondItem="tjR-Ba-sMh" secondAttribute="trailing" constant="16" id="xkq-h8-Jn9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="title" destination="tjR-Ba-sMh" id="4EX-3W-NGq"/>
+                <outlet property="containerButton" destination="8If-2J-0EQ" id="BS5-Jz-GKJ"/>
+                <outlet property="titleLabel" destination="tjR-Ba-sMh" id="KxO-Zl-f5W"/>
             </connections>
             <point key="canvasLocation" x="139" y="105"/>
         </tableViewCell>

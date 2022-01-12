@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import RxSwift
+
+// MARK: - UITableView
 
 extension UITableView {
     func register(_ id: String) {
@@ -48,5 +51,34 @@ extension UITableView {
                 "Couldn't find UITableViewHeaderFooterView for \(String(describing: name)), make sure the view is registered with table view")
         }
         return headerFooterView
+    }
+}
+
+
+// MARK: - UIAlertController+Rx
+
+extension UIViewController {
+    
+    func showTextFieldAlert(title: String? = nil, message: String? = nil, confirmHandler: ((String?) -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField()
+        alert.addAction(UIAlertAction(title: "완료", style: .default, handler: { action in
+            confirmHandler?(alert.textFields?.first?.text)
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension Reactive where Base: UIViewController {
+    
+    func showTextFieldAlert(title: String? = nil, message: String? = nil) -> Observable<String?> {
+        return Observable<String?>.create { [weak base] observer in
+            base?.showTextFieldAlert(title: title, message: message, confirmHandler: {
+                observer.onNext($0)
+                observer.onCompleted()
+            })
+            return Disposables.create()
+        }.observe(on: MainScheduler.instance)
     }
 }
