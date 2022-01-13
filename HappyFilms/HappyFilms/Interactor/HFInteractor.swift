@@ -23,4 +23,8 @@ class HFInteractor {
     func setGenres(_ genres: [Genre]) {
         interface.setGenres(genres)
     }
+    
+    func searchFilms(_ keyword: String) -> Observable<[Film]?> {
+        interface.searchFilms(keyword)
+    }
 }

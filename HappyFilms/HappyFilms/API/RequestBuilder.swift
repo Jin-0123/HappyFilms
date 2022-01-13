@@ -59,8 +59,8 @@ class RequestBuilder<T: Decodable> {
 extension RequestBuilder {
     
     func returnObservable() -> Observable<T> {
-        return Observable.create { [weak self] observer -> Disposable in
-            self?.excute { response, error in
+        return Observable.create { observer -> Disposable in
+            self.excute { response, error in
                 if let error = error {
                     observer.onError(error)
                     return
@@ -75,7 +75,7 @@ extension RequestBuilder {
                 observer.onError(ErrorResponse.empty)
             }
             
-            return Disposables.create { self?.cancel() }
+            return Disposables.create { self.cancel() }
         }
     }
 }

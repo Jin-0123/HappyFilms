@@ -12,4 +12,6 @@ protocol HFInterface {
     
     func getGenres() -> [Genre]?
     func setGenres(_ genres: [Genre])
+    
+    func searchFilms(_ keyword: String) -> Observable<[Film]?>
 }

@@ -23,4 +23,12 @@ class HFAppDI {
         GenreSettingViewModel(hfInteractor: interactor, genresManager: genresManager)
     }
     
+    var filmListViewModel: FilmListViewModel {
+        FilmListViewModel(hfInteractor: interactor)
+    }
+    
+    var addFilm1ViewModel: AddFilm1ViewModel {
+        AddFilm1ViewModel(hfInteractor: interactor)
+    }
+    
 }

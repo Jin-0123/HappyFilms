@@ -17,13 +17,13 @@ struct NaverSearchAPI {
     private static let CLIENT_ID = "50CjTKfSIkyokg7T4PYD"
     private static let CLIENT_SECRET  = "GTbp4ibKg9"
     
-    static func searchFilms(_ query: String) -> Observable<FilmsDTO> {
+    static func searchFilms(_ query: String) -> Observable<FilmsDTO?> {
         let parameters = [KEY_PARAMS_QUERY: query]
         let headers = [
             KEY_CLIENT_ID: CLIENT_ID,
             KEY_CLIENT_SECRET: CLIENT_SECRET
         ]
         
-        return RequestBuilder<FilmsDTO>(method: .get, URLString: Self.URL, parameters: parameters, isBody: false, headers: headers).returnObservable()
+        return RequestBuilder<FilmsDTO?>(method: .get, URLString: Self.URL, parameters: parameters, isBody: false, headers: headers).returnObservable()
     }
 }

@@ -25,6 +25,8 @@ struct FilmItemDTO: Decodable {
     let image: String
     let director: String
     let actor: String
+    let pubDate: String
+    let userRating: String
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -32,9 +34,11 @@ struct FilmItemDTO: Decodable {
         image = try values.decode(String.self, forKey: .image)
         director = try values.decode(String.self, forKey: .director)
         actor = try values.decode(String.self, forKey: .actor)
+        pubDate = try values.decode(String.self, forKey: .pubDate)
+        userRating = try values.decode(String.self, forKey: .userRating)
     }
     
     private enum CodingKeys : String, CodingKey {
-        case title, image, director, actor
+        case title, image, director, actor, pubDate, userRating
     }
 }

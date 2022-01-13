@@ -1,5 +1,5 @@
 //
-//  UIKitExtensions.swift
+//  Extensions.swift
 //  HappyFilms
 //
 //  Created by JinYoung Jang on 11/1/22.
@@ -8,6 +8,16 @@
 import Foundation
 import UIKit
 import RxSwift
+
+// MARK: - NSObject
+
+extension NSObject {
+    
+    static func id() -> String {
+        return String(describing: self)
+    }
+}
+
 
 // MARK: - UITableView
 
@@ -59,6 +69,12 @@ extension UITableView {
 
 extension UIViewController {
     
+    static func push(on topVC: UIViewController) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: Self.id()) as? Self else { return }
+        topVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func showTextFieldAlert(title: String? = nil, message: String? = nil, confirmHandler: ((String?) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addTextField()
@@ -80,5 +96,20 @@ extension Reactive where Base: UIViewController {
             })
             return Disposables.create()
         }.observe(on: MainScheduler.instance)
+    }
+}
+
+
+// MARK: - String
+
+extension String {
+
+    var htmlToAttributedString: NSMutableAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+     
+        return try? NSMutableAttributedString(data: data, options: [
+            .documentType: NSMutableAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ], documentAttributes: nil)
     }
 }

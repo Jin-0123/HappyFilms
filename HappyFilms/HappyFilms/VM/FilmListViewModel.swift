@@ -1,8 +1,8 @@
 //
-//  MyFilmsNoteViewModel.swift
+//  FilmListViewModel.swift
 //  HappyFilms
 //
-//  Created by JinYoung Jang on 11/1/22.
+//  Created by JinYoung Jang on 13/1/22.
 //
 
 import Foundation
@@ -10,14 +10,14 @@ import RxCocoa
 import RxSwift
 import RxSwiftExt
 
-class MyFilmsNoteViewModel: ViewModelType {
+class FilmListViewModel: ViewModelType {
         
     enum Actions {
-        case showFilmsList(UUID)
+        case showAddFilm1
     }
     
     struct Inputs {
-        let tapGenre: Observable<UUID>
+        let tapAdd: Observable<Void>
     }
     
     struct State: ActionState, ErrorState {
@@ -26,7 +26,7 @@ class MyFilmsNoteViewModel: ViewModelType {
     }
     
     struct Outputs: HasAction, HasError {
-        let genres: Driver<[Genre]>
+//        let genres: Driver<[Genre]>
         let action: Driver<Actions>
         let error: Driver<Error>
     }
@@ -35,30 +35,22 @@ class MyFilmsNoteViewModel: ViewModelType {
     let outputs: Outputs
     
     private let hfInteractor: HFInteractor!
-    private let genresManager: GenresManager!
     private let disposeBag = DisposeBag()
     
-    init(hfInteractor: HFInteractor, genresManager: GenresManager) {
+    init(hfInteractor: HFInteractor) {
         self.hfInteractor = hfInteractor
-        self.genresManager = genresManager
         
         state = State(action: PublishRelay(),
                       error: PublishRelay())
         
-        genresManager.fetch(hfInteractor.getGenres())
-        let genres = genresManager.genresRelay.map {
-            $0.filter { $0.isOn }
-        }
-        
-        outputs = Outputs(genres: genres.asDriver(onErrorDriveWith: .empty()),
-                          action: state.action.asDriver(onErrorDriveWith: .empty()),
+        outputs = Outputs(action: state.action.asDriver(onErrorDriveWith: .empty()),
                           error: state.error.asDriver(onErrorDriveWith: .empty()))
                 
     }
     
     func bind(_ inputs: Inputs) {
-        inputs.tapGenre
-            .map { .showFilmsList($0) }
+        inputs.tapAdd
+            .map { .showAddFilm1 }
             .bind(to: state.action)
             .disposed(by: disposeBag)
     }

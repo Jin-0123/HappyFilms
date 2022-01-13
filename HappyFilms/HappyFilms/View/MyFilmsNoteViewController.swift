@@ -32,6 +32,12 @@ class MyFilmsNoteViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     private func bindViewModel() {
         let tapGenreRelay = PublishRelay<MyFilmsNoteCellEvent>()
         
@@ -50,8 +56,10 @@ class MyFilmsNoteViewController: UIViewController {
         
         viewModel.outputs.action.drive(onNext: { action in
             switch action {
-            case .showFilmsList(let genreId):
-                print("다음 화면으로 이동 \(genreId)")
+            case .showFilmsList(let id):
+                print("=== \(id)")
+                
+                FilmListViewController.push(on: self)
             }
         }).disposed(by: disposeBag)
     }

@@ -12,8 +12,6 @@ import RxSwiftExt
 
 class GenreSettingViewModel: ViewModelType {
     
-    // MARK: - implement ViewModelType
-    
     enum Actions {
         case ignore
         case refresh
@@ -39,6 +37,22 @@ class GenreSettingViewModel: ViewModelType {
     
     let state: State
     let outputs: Outputs
+    
+    private let hfInteractor: HFInteractor!
+    private let genresManager: GenresManager!
+    private let disposeBag = DisposeBag()
+    
+    init(hfInteractor: HFInteractor, genresManager: GenresManager) {
+        self.hfInteractor = hfInteractor
+        self.genresManager = genresManager
+        
+        state = State(action: PublishRelay(),
+                      error: PublishRelay())
+        
+        outputs = Outputs(genres: genresManager.genresRelay.asDriver(onErrorDriveWith: .empty()),
+                          action: state.action.asDriver(onErrorDriveWith: .empty()),
+                          error: state.error.asDriver(onErrorDriveWith: .empty()))
+    }
     
     func bind(_ inputs: Inputs) {
         inputs.tapAdd
@@ -66,24 +80,5 @@ class GenreSettingViewModel: ViewModelType {
             .bind(to: state.action)
             .disposed(by: disposeBag)
             
-    }
-    
-    // MARK: -
-    
-    private let hfInteractor: HFInteractor!
-    private let genresManager: GenresManager!
-    
-    private let disposeBag = DisposeBag()
-    
-    init(hfInteractor: HFInteractor, genresManager: GenresManager) {
-        self.hfInteractor = hfInteractor
-        self.genresManager = genresManager
-        
-        state = State(action: PublishRelay(),
-                      error: PublishRelay())
-        
-        outputs = Outputs(genres: genresManager.genresRelay.asDriver(onErrorDriveWith: .empty()),
-                          action: state.action.asDriver(onErrorDriveWith: .empty()),
-                          error: state.error.asDriver(onErrorDriveWith: .empty()))
     }
 }
