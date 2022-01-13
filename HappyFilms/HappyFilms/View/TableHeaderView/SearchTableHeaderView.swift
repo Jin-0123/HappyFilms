@@ -27,7 +27,7 @@ class SearchTableHeaderView: UIView {
     let textField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        
+        textField.becomeFirstResponder()
         return textField
     }()
     

@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 class MyFilmsNoteViewController: UIViewController {
+    
     private let headerView: CommonTableHeaderView = {
         let view = CommonTableHeaderView()
         view.set("나의 영화 노트")

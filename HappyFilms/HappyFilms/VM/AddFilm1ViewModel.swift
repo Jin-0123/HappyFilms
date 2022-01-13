@@ -14,7 +14,7 @@ class AddFilm1ViewModel: ViewModelType {
         
     enum Actions {
         case ignore
-        case showAddFilm2
+        case showAddFilm2(Film)
         case isActivateNext(Bool)
     }
     
@@ -56,14 +56,25 @@ class AddFilm1ViewModel: ViewModelType {
     }
     
     func bind(_ inputs: Inputs) {
+        let selectedFilmRelay: BehaviorRelay<Film?> = BehaviorRelay(value: nil)
+        
         inputs.tapNext
-            .map { .showAddFilm2 }
+            .map {
+                if let selected = selectedFilmRelay.value {
+                    return .showAddFilm2(selected)
+                } else {
+                    return .ignore
+                }
+            }
             .bind(to: state.action)
             .disposed(by: disposeBag)
         
        inputs.keyword
             .filter { !$0.isEmpty }
             .throttle(.milliseconds(5), scheduler: MainScheduler.instance)
+            .do(onNext: { _ in
+                selectedFilmRelay.accept(nil)
+            })
             .flatMapLatest { [weak self] in
                 self?.hfInteractor.searchFilms($0) ?? .empty()
             }
@@ -73,23 +84,20 @@ class AddFilm1ViewModel: ViewModelType {
         inputs.select
             .do(onNext: { [weak self] selected in
                 guard let self = self, var copiedList = self.state.data.value else { return }
-               
-                if let selectedIndex = copiedList.firstIndex(where: { $0 == selected }) {
-                    for (index, _) in copiedList.enumerated() {
-                        copiedList[index].isSelected = index == selectedIndex ? true : false
-                    }
+                
+                for (index, copied) in copiedList.enumerated() {
+                    copiedList[index].isSelected = copied == selected
                 }
+                
+                selectedFilmRelay.accept(selected)
                 self.state.data.accept(copiedList)
             })
             .map { _ in .ignore }
             .bind(to: state.action)
             .disposed(by: disposeBag)
         
-        state.data
-            .map {
-                let isActivate = $0?.first(where: { $0.isSelected == true }) == nil ? false : true
-                return .isActivateNext(isActivate)
-            }
+        selectedFilmRelay
+            .map { .isActivateNext($0 != nil) }
             .bind(to: state.action)
             .disposed(by: disposeBag)
     }

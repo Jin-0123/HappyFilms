@@ -41,8 +41,8 @@ class AddFilm1TableViewCell: BindingEventCell<AddFilm1CellEvent> {
             return pubDate + userRating
         }
         
-        titleLabel.attributedText = item.title.htmlToAttributedString
-        descriptionLabel.attributedText = description.htmlToAttributedString
+        titleLabel.text = item.title.htmlToString
+        descriptionLabel.text = description.htmlToString
         checkLabel.isHidden = !item.isSelected
     }
     

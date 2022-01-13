@@ -31,4 +31,7 @@ class HFAppDI {
         AddFilm1ViewModel(hfInteractor: interactor)
     }
     
+    var addFilm2ViewModel: AddFilm2ViewModel {
+        AddFilm2ViewModel(hfInteractor: interactor)
+    }
 }

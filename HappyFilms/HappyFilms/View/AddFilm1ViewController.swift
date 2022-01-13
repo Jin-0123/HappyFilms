@@ -10,16 +10,6 @@ import RxCocoa
 import RxSwift
 
 class AddFilm1ViewController: UIViewController {
-    
-    private var nextButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "다음", style: .plain, target: nil, action: nil)
-        return button
-    }()
-    
-    private let headerView: SearchTableHeaderView = {
-        let view = SearchTableHeaderView()
-        return view
-    }()
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -27,6 +17,17 @@ class AddFilm1ViewController: UIViewController {
             tableView.tableHeaderView = headerView
         }
     }
+    
+    private var nextButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "다음", style: .plain, target: nil, action: nil)
+        button.isEnabled = false
+        return button
+    }()
+    
+    private let headerView: SearchTableHeaderView = {
+        let view = SearchTableHeaderView()
+        return view
+    }()
     
     private let disposeBag = DisposeBag()
     private var viewModel = HFAppDI.shared.addFilm1ViewModel
@@ -38,7 +39,6 @@ class AddFilm1ViewController: UIViewController {
         bindViewModel()
     }
     
-
     private func setView() {
         navigationItem.rightBarButtonItem = nextButton
     }
@@ -65,8 +65,8 @@ class AddFilm1ViewController: UIViewController {
             guard let self = self else { return }
             
             switch action {
-            case .showAddFilm2:
-                AddFilm2ViewController.push(on: self)
+            case .showAddFilm2(let film):
+                AddFilm2ViewController.push(on: self, film: film)
             case .isActivateNext(let isActivate):
                 self.navigationItem.rightBarButtonItem?.isEnabled = isActivate
             default:

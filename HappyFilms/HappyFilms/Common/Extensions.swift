@@ -65,7 +65,7 @@ extension UITableView {
 }
 
 
-// MARK: - UIAlertController+Rx
+// MARK: - UIViewController+Rx
 
 extension UIViewController {
     
@@ -104,12 +104,24 @@ extension Reactive where Base: UIViewController {
 
 extension String {
 
-    var htmlToAttributedString: NSMutableAttributedString? {
+    var htmlToString: String? {
         guard let data = data(using: .utf8) else { return nil }
      
         return try? NSMutableAttributedString(data: data, options: [
             .documentType: NSMutableAttributedString.DocumentType.html,
             .characterEncoding: String.Encoding.utf8.rawValue
-        ], documentAttributes: nil)
+        ], documentAttributes: nil).string
+    }
+}
+
+
+// MARK: - Date
+
+extension Date {
+    func toYYYYMMDD() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY. MM. dd"
+
+        return dateFormatter.string(from: self)
     }
 }

@@ -13,8 +13,8 @@ class SortTableHeaderView: UIView {
     let titleButton: UIButton = {
         let button = UIButton(type: .custom)
         button.contentHorizontalAlignment = .leading
-        button.setTitle("기록 생성 순 ⬇️", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        button.setTitle("기록 생성 순 ▼", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .light)
         button.setTitleColor(.black, for: .normal)
         return button
     }()

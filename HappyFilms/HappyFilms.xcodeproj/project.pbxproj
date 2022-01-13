@@ -45,6 +45,7 @@
 		B57FE81C278F502600857FDE /* AddFilm2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE81B278F502600857FDE /* AddFilm2ViewController.swift */; };
 		B57FE81E278F515200857FDE /* AddFilm1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE81D278F515200857FDE /* AddFilm1ViewModel.swift */; };
 		B57FE8202790337900857FDE /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE81F2790337900857FDE /* Film.swift */; };
+		B57FE822279054BC00857FDE /* AddFilm2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE821279054BC00857FDE /* AddFilm2ViewModel.swift */; };
 		B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587245F278C5F1200178E42 /* AppDelegate.swift */; };
 		B5872467278C5F1200178E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5872465278C5F1200178E42 /* Main.storyboard */; };
 		B5872469278C5F1300178E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5872468278C5F1300178E42 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		B57FE81B278F502600857FDE /* AddFilm2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilm2ViewController.swift; sourceTree = "<group>"; };
 		B57FE81D278F515200857FDE /* AddFilm1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilm1ViewModel.swift; sourceTree = "<group>"; };
 		B57FE81F2790337900857FDE /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		B57FE821279054BC00857FDE /* AddFilm2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilm2ViewModel.swift; sourceTree = "<group>"; };
 		B587245C278C5F1200178E42 /* HappyFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B587245F278C5F1200178E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5872466278C5F1200178E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				B57FE7F3278DD84A00857FDE /* GenreSettingViewModel.swift */,
 				B57FE810278F484A00857FDE /* FilmListViewModel.swift */,
 				B57FE81D278F515200857FDE /* AddFilm1ViewModel.swift */,
+				B57FE821279054BC00857FDE /* AddFilm2ViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B57FE80F278F463600857FDE /* AddFilm1ViewController.swift in Sources */,
+				B57FE822279054BC00857FDE /* AddFilm2ViewModel.swift in Sources */,
 				B57FE81C278F502600857FDE /* AddFilm2ViewController.swift in Sources */,
 				B57FE807278F266C00857FDE /* BindingEventCell.swift in Sources */,
 				B57FE7F1278DD18A00857FDE /* GenreSettingTableViewCell.swift in Sources */,

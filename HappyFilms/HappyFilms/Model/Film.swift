@@ -15,6 +15,8 @@ struct Film: Equatable {
     let pubDate: String
     let userRating: String
     var isSelected: Bool
+    var watchedDate: Date?
+    var memo: String?
     
     init(from dto: FilmItemDTO) {
         title = dto.title
