@@ -43,24 +43,22 @@ class MyFilmsNoteViewController: UIViewController {
         let tapGenreRelay = PublishRelay<MyFilmsNoteCellEvent>()
         
         // Input
-        let inputs = MyFilmsNoteViewModel.Inputs(tapGenre: tapGenreRelay.mapAt(\.id).unwrap().asObservable())
+        let inputs = MyFilmsNoteViewModel.Inputs(tapGenre: tapGenreRelay.mapAt(\.genre).unwrap().asObservable())
         viewModel.bind(inputs)
         
         // Output
         viewModel.outputs.genres.drive(tableView.rx.items) { tableView, row, item in
             let indexPath = IndexPath(row: row, section: 0)
             let cell = tableView.dequeueReusableCell(withClass: MyFilmsNoteTableViewCell.self, for: indexPath)
-            cell.set(item.id, title: item.title)
+            cell.set(item)
             cell.bind(to: tapGenreRelay)
             return cell
         }.disposed(by: disposeBag)
         
         viewModel.outputs.action.drive(onNext: { action in
             switch action {
-            case .showFilmsList(let id):
-                print("=== \(id)")
-                
-                FilmListViewController.push(on: self)
+            case .showFilmsList(let genre):
+                FilmListViewController.push(on: self, genre: genre)
             }
         }).disposed(by: disposeBag)
     }

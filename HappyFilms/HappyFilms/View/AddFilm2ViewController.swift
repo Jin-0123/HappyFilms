@@ -27,7 +27,7 @@ class AddFilm2ViewController: UIViewController {
     static func push(on topVC: UIViewController, film: Film) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyBoard.instantiateViewController(withIdentifier: Self.id()) as? Self else { return }
-        vc.title = film.title.htmlToString
+        vc.title = film.prettyTitle
         vc.viewModel.setup(film)
         topVC.navigationController?.pushViewController(vc, animated: true)
     }
@@ -52,7 +52,7 @@ class AddFilm2ViewController: UIViewController {
         // Input
         let inputs = AddFilm2ViewModel.Inputs(tapDateButton: dateButton.rx.tap.asObservable(),
                                               tapDone: doneButton.rx.tap.asObservable(),
-                                              watchedDate: watchedDateRelay,
+                                              changedWatchedDate: watchedDateRelay,
                                               memo: textField.rx.text.orEmpty.distinctUntilChanged().asObservable())
         viewModel.bind(inputs)
         

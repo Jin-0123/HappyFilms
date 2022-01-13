@@ -49,7 +49,7 @@ class AddFilm1ViewController: UIViewController {
         // Input
         let inputs = AddFilm1ViewModel.Inputs(tapNext: nextButton.rx.tap.asObservable(),
                                               keyword: headerView.textField.rx.text.orEmpty.distinctUntilChanged().asObservable(),
-                                              select: selectedFilmRelay.mapAt(\.item).asObservable())
+                                              select: selectedFilmRelay.mapAt(\.film).asObservable())
         viewModel.bind(inputs)
         
         // Output

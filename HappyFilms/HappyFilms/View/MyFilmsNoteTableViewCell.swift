@@ -11,11 +11,11 @@ import RxCocoa
 
 enum MyFilmsNoteCellEvent: CaseIterable {
     case ignore
-    case selected(UUID)
+    case selected(Genre?)
     
-    static var allCases: [MyFilmsNoteCellEvent] = [.selected(UUID())]
+    static var allCases: [MyFilmsNoteCellEvent] = [.selected(nil)]
     
-    var id: (UUID)? {
+    var genre: (Genre)? {
         switch self {
         case .selected(let id): return (id)
         default: return nil
@@ -28,19 +28,18 @@ class MyFilmsNoteTableViewCell: BindingEventCell<MyFilmsNoteCellEvent> {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var containerButton: UIButton!
     
-    private var id: UUID?
+    private var genre: Genre?
     
-    func set(_ id: UUID, title: String) {
-        self.id = id
+    func set(_ genre: Genre) {
+        self.genre = genre
         
-        titleLabel.text = title
+        titleLabel.text = genre.title
     }
     
     override func getEvent(event: MyFilmsNoteCellEvent) -> Observable<MyFilmsNoteCellEvent>? {
         containerButton.rx.tap.map { [weak self] in
-            guard let self = self, let id = self.id else { return .ignore }
-            return .selected(id)
+            guard let self = self, let genre = self.genre else { return .ignore }
+            return .selected(genre)
         }
     }
-    
 }

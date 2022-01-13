@@ -13,11 +13,11 @@ import RxSwiftExt
 class MyFilmsNoteViewModel: ViewModelType {
         
     enum Actions {
-        case showFilmsList(UUID)
+        case showFilmsList(Genre)
     }
     
     struct Inputs {
-        let tapGenre: Observable<UUID>
+        let tapGenre: Observable<Genre>
     }
     
     struct State: ActionState, ErrorState {
@@ -36,11 +36,13 @@ class MyFilmsNoteViewModel: ViewModelType {
     
     private let hfInteractor: HFInteractor!
     private let genresManager: GenresManager!
+    private let filmsManager: FilmsManager!
     private let disposeBag = DisposeBag()
     
-    init(hfInteractor: HFInteractor, genresManager: GenresManager) {
+    init(hfInteractor: HFInteractor, genresManager: GenresManager, filmsManager: FilmsManager) {
         self.hfInteractor = hfInteractor
         self.genresManager = genresManager
+        self.filmsManager = filmsManager
         
         state = State(action: PublishRelay(),
                       error: PublishRelay())
@@ -58,6 +60,9 @@ class MyFilmsNoteViewModel: ViewModelType {
     
     func bind(_ inputs: Inputs) {
         inputs.tapGenre
+            .do(onNext: { [weak self] in
+                self?.filmsManager.selectGenre($0.id)
+            })
             .map { .showFilmsList($0) }
             .bind(to: state.action)
             .disposed(by: disposeBag)

@@ -31,6 +31,13 @@ class FilmListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var viewModel = HFAppDI.shared.filmListViewModel
     
+    static func push(on topVC: UIViewController, genre: Genre) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: Self.id()) as? Self else { return }
+        vc.title = genre.title
+        topVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,26 +53,45 @@ class FilmListViewController: UIViewController {
     
     private func setView() {
         navigationItem.rightBarButtonItem = addButton
+        headerView.set(viewModel.sortOption)
     }
     
     private func bindViewModel() {
+        let sortRelay: BehaviorRelay<SortOption?> = BehaviorRelay(value: nil)
+        
         // Input
-        let inputs = FilmListViewModel.Inputs(tapAdd: addButton.rx.tap.asObservable())
+        let inputs = FilmListViewModel.Inputs(tapAdd: addButton.rx.tap.asObservable(),
+                                              tapSortButton: headerView.titleButton.rx.tap.asObservable(),
+                                              selectSortOption: sortRelay.asObservable())
         viewModel.bind(inputs)
         
         // Output
-//        viewModel.outputs.genres.drive(tableView.rx.items) { tableView, row, item in
-//            let indexPath = IndexPath(row: row, section: 0)
-//            let cell = tableView.dequeueReusableCell(withClass: MyFilmsNoteTableViewCell.self, for: indexPath)
-//            cell.set(item.id, title: item.title)
-//            cell.bind(to: tapGenreRelay)
-//            return cell
-//        }.disposed(by: disposeBag)
+        viewModel.outputs.films.map { $0 }.drive(tableView.rx.items) { tableView, row, item in
+            let indexPath = IndexPath(row: row, section: 0)
+            let cell = tableView.dequeueReusableCell(withClass: FilmListTableViewCell.self, for: indexPath)
+            cell.set(item)
+            return cell
+        }.disposed(by: disposeBag)
         
-        viewModel.outputs.action.drive(onNext: { action in
+        viewModel.outputs.action.drive(onNext: { [weak self] action in
+            guard let self = self else { return }
             switch action {
             case .showAddFilm1:
                 AddFilm1ViewController.push(on: self)
+            case .showSortSheet:
+                self.rx.showActionSheet(title: SortOption.title,
+                                        firstTitle: SortOption.allCases[0].optionName,
+                                        secondTitle: SortOption.allCases[1].optionName,
+                                        thirdTitle: SortOption.allCases[2].optionName)
+                    .map { 
+                        return SortOption(rawValue: $0) ?? .saveDate
+                    }
+                    .bind(to: sortRelay)
+                    .disposed(by: self.disposeBag)
+            case .selectedSortOption(let option):
+                self.headerView.set(option)
+            default:
+                break    
             }
         }).disposed(by: disposeBag)
     }

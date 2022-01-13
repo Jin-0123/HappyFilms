@@ -15,5 +15,9 @@ class FilmListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    func set(_ film: Film) {
+        titleLabel.text = film.prettyTitle
+        dateLabel.text = film.watchedDateString
+        likeButton.setTitle(film.isLiked ? "❤️" : "🤍", for: .normal)
+    }
 }

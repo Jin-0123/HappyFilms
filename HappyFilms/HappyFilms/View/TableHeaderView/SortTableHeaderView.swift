@@ -13,7 +13,6 @@ class SortTableHeaderView: UIView {
     let titleButton: UIButton = {
         let button = UIButton(type: .custom)
         button.contentHorizontalAlignment = .leading
-        button.setTitle("기록 생성 순 ▼", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .light)
         button.setTitleColor(.black, for: .normal)
         return button
@@ -45,7 +44,7 @@ class SortTableHeaderView: UIView {
         ])
     }
     
-    func set(_ title: String) {
-        titleButton.setTitle("\(title) ⬇️", for: .normal)
+    func set(_ option: SortOption) {
+        titleButton.setTitle("\(option.optionName) ▼", for: .normal)
     }
 }
