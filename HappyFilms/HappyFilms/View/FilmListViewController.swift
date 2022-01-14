@@ -57,10 +57,12 @@ class FilmListViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        let tapFilmRelay = PublishRelay<FilmListCellEvent>()
         let sortRelay: BehaviorRelay<SortOption?> = BehaviorRelay(value: nil)
         
         // Input
-        let inputs = FilmListViewModel.Inputs(tapAdd: addButton.rx.tap.asObservable(),
+        let inputs = FilmListViewModel.Inputs(tapFilm: tapFilmRelay.mapAt(\.film).unwrap().asObservable(),
+                                              tapAdd: addButton.rx.tap.asObservable(),
                                               tapSortButton: headerView.titleButton.rx.tap.asObservable(),
                                               selectSortOption: sortRelay.asObservable())
         viewModel.bind(inputs)
@@ -70,6 +72,7 @@ class FilmListViewController: UIViewController {
             let indexPath = IndexPath(row: row, section: 0)
             let cell = tableView.dequeueReusableCell(withClass: FilmListTableViewCell.self, for: indexPath)
             cell.set(item)
+            cell.bind(to: tapFilmRelay)
             return cell
         }.disposed(by: disposeBag)
         
@@ -78,6 +81,8 @@ class FilmListViewController: UIViewController {
             switch action {
             case .showAddFilm1:
                 AddFilm1ViewController.push(on: self)
+            case .showDetail(let film):
+                FilmDetailViewController.push(on: self, film: film)
             case .showSortSheet:
                 self.rx.showActionSheet(title: SortOption.title,
                                         firstTitle: SortOption.allCases[0].optionName,
@@ -89,7 +94,7 @@ class FilmListViewController: UIViewController {
                     .bind(to: sortRelay)
                     .disposed(by: self.disposeBag)
             case .selectedSortOption(let option):
-                self.headerView.set(option)
+                self.headerView.set(option)            
             default:
                 break    
             }

@@ -44,15 +44,14 @@ class AddFilm2ViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        
-        let watchedDateRelay = datePicker.rx.controlEvent(.valueChanged).map { [weak self] in
-            self?.datePicker.date ?? nil
-        }.unwrap().asObservable()
+        let watchedDateRelay = Observable.merge(dateButton.rx.tap.asObservable(),
+                                                datePicker.rx.controlEvent(.valueChanged).asObservable())
+            .map { [weak self] in self?.datePicker.date }.unwrap().asObservable()
         
         // Input
         let inputs = AddFilm2ViewModel.Inputs(tapDateButton: dateButton.rx.tap.asObservable(),
                                               tapDone: doneButton.rx.tap.asObservable(),
-                                              changedWatchedDate: watchedDateRelay,
+                                              watchedDate: watchedDateRelay,
                                               memo: textField.rx.text.orEmpty.distinctUntilChanged().asObservable())
         viewModel.bind(inputs)
         

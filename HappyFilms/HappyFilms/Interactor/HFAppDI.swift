@@ -28,6 +28,10 @@ class HFAppDI {
         FilmListViewModel(hfInteractor: interactor, filmsManager: filmsManager)
     }
     
+    var filmDetailViewModel: FilmDetailViewModel {
+        FilmDetailViewModel(hfInteractor: interactor, filmsManager: filmsManager)
+    }
+    
     var addFilm1ViewModel: AddFilm1ViewModel {
         AddFilm1ViewModel(hfInteractor: interactor)
     }

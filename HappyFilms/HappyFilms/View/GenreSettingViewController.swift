@@ -13,7 +13,7 @@ class GenreSettingViewController: UIViewController {
     
     private let headerView: CommonTableHeaderView = {
         let view = CommonTableHeaderView()
-        view.set("장르 관리", useAddButton: true)
+        view.set("⚙️ 장르 관리", useAddButton: true)
         return view
     }()
 

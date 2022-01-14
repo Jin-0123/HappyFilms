@@ -22,7 +22,7 @@ class AddFilm2ViewModel: ViewModelType {
     struct Inputs {
         let tapDateButton: Observable<Void>
         let tapDone: Observable<Void>
-        let changedWatchedDate: Observable<Date>
+        let watchedDate: Observable<Date>
         let memo: Observable<String>
     }
     
@@ -69,9 +69,8 @@ class AddFilm2ViewModel: ViewModelType {
         
         inputs.tapDone
             .flatMapLatest {
-                inputs.memo.debug()
+                inputs.memo
             }
-            .throttle(.milliseconds(5), scheduler: MainScheduler.instance)
             .do(onNext: { [weak self] memo in
                 guard let self = self, var copiedFilm = self.copiedFilm else { return }
                 copiedFilm.saveDate = Date()
@@ -83,7 +82,7 @@ class AddFilm2ViewModel: ViewModelType {
             .bind(to: state.action)
             .disposed(by: disposeBag)
         
-        inputs.changedWatchedDate
+        inputs.watchedDate
             .do(onNext: {
                 watchedDateRelay.accept($0)
             })

@@ -19,7 +19,7 @@ class SearchTableHeaderView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "영화 이름이 무엇인가요?"
+        label.text = "🔎 영화 이름이 무엇인가요?"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()

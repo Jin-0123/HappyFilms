@@ -46,6 +46,8 @@
 		B57FE81E278F515200857FDE /* AddFilm1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE81D278F515200857FDE /* AddFilm1ViewModel.swift */; };
 		B57FE8202790337900857FDE /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE81F2790337900857FDE /* Film.swift */; };
 		B57FE822279054BC00857FDE /* AddFilm2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE821279054BC00857FDE /* AddFilm2ViewModel.swift */; };
+		B57FE8242790A07100857FDE /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE8232790A07100857FDE /* FilmDetailViewController.swift */; };
+		B57FE8262790A65300857FDE /* FilmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FE8252790A65300857FDE /* FilmDetailViewModel.swift */; };
 		B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587245F278C5F1200178E42 /* AppDelegate.swift */; };
 		B5872467278C5F1200178E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5872465278C5F1200178E42 /* Main.storyboard */; };
 		B5872469278C5F1300178E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5872468278C5F1300178E42 /* Assets.xcassets */; };
@@ -110,6 +112,8 @@
 		B57FE81D278F515200857FDE /* AddFilm1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilm1ViewModel.swift; sourceTree = "<group>"; };
 		B57FE81F2790337900857FDE /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		B57FE821279054BC00857FDE /* AddFilm2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilm2ViewModel.swift; sourceTree = "<group>"; };
+		B57FE8232790A07100857FDE /* FilmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
+		B57FE8252790A65300857FDE /* FilmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewModel.swift; sourceTree = "<group>"; };
 		B587245C278C5F1200178E42 /* HappyFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B587245F278C5F1200178E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5872466278C5F1200178E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				B57FE808278F3A1600857FDE /* FilmListViewController.swift */,
 				B57FE80A278F3AEC00857FDE /* FilmListTableViewCell.swift */,
 				B57FE80B278F3AEC00857FDE /* FilmListTableViewCell.xib */,
+				B57FE8232790A07100857FDE /* FilmDetailViewController.swift */,
 				B57FE80E278F463600857FDE /* AddFilm1ViewController.swift */,
 				B57FE817278F4E0100857FDE /* AddFilm1TableViewCell.swift */,
 				B57FE818278F4E0100857FDE /* AddFilm1TableViewCell.xib */,
@@ -196,6 +201,7 @@
 				B57FE810278F484A00857FDE /* FilmListViewModel.swift */,
 				B57FE81D278F515200857FDE /* AddFilm1ViewModel.swift */,
 				B57FE821279054BC00857FDE /* AddFilm2ViewModel.swift */,
+				B57FE8252790A65300857FDE /* FilmDetailViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -456,11 +462,13 @@
 				B57FE819278F4E0100857FDE /* AddFilm1TableViewCell.swift in Sources */,
 				B57FE805278F25F800857FDE /* Consumer.swift in Sources */,
 				B57FE81E278F515200857FDE /* AddFilm1ViewModel.swift in Sources */,
+				B57FE8262790A65300857FDE /* FilmDetailViewModel.swift in Sources */,
 				B57FE7CE278C71A300857FDE /* RequestBuilder.swift in Sources */,
 				B5872460278C5F1200178E42 /* AppDelegate.swift in Sources */,
 				B57FE7FB278EF4E000857FDE /* HFInteractor.swift in Sources */,
 				B57FE7E3278DC66300857FDE /* Extensions.swift in Sources */,
 				B57FE80C278F3AEC00857FDE /* FilmListTableViewCell.swift in Sources */,
+				B57FE8242790A07100857FDE /* FilmDetailViewController.swift in Sources */,
 				B57FE7FF278EF77500857FDE /* Genre.swift in Sources */,
 				B57FE809278F3A1600857FDE /* FilmListViewController.swift in Sources */,
 				B57FE7D9278DB4C700857FDE /* MyFilmsNoteViewController.swift in Sources */,

@@ -22,6 +22,7 @@ extension NSObject {
 // MARK: - UITableView
 
 extension UITableView {
+    
     func register(_ id: String) {
         register(UINib(nibName: id, bundle: nil), forCellReuseIdentifier: id)
     }
@@ -91,13 +92,16 @@ extension UIViewController {
         let first = UIAlertAction(title: firstTitle, style: .default, handler: firstAction)
         let second = UIAlertAction(title: secondTitle, style: .default, handler: secondAction)
         let third = UIAlertAction(title: thirdTitle, style: .default, handler: thirdAction)
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(first)
         alert.addAction(second)
         alert.addAction(third)
+        alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
     }
+    
 }
 
 extension Reactive where Base: UIViewController {
@@ -138,6 +142,14 @@ extension String {
             .documentType: NSMutableAttributedString.DocumentType.html,
             .characterEncoding: String.Encoding.utf8.rawValue
         ], documentAttributes: nil).string
+    }
+    
+    var prettyNames: String {
+        if components(separatedBy: ["|"]).count > 2 {
+            return String(replacingOccurrences(of: "|", with: " | ").dropLast().dropLast())
+        } else {
+            return replacingOccurrences(of: "|", with: "")
+        }
     }
 }
 

@@ -17,7 +17,7 @@ enum MyFilmsNoteCellEvent: CaseIterable {
     
     var genre: (Genre)? {
         switch self {
-        case .selected(let id): return (id)
+        case .selected(let genre): return genre
         default: return nil
         }
     }

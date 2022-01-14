@@ -30,6 +30,7 @@ enum SortOption: Int, CaseIterable {
 }
 
 struct Film: Equatable {
+    let id: UUID = UUID()
     let title: String
     let image: String
     let director: String
@@ -62,24 +63,19 @@ struct Film: Equatable {
     }
     
     static func == (lhs: Film, rhs: Film) -> Bool {
-        return lhs.title == rhs.title &&
-        lhs.image == rhs.image &&
-        lhs.director == rhs.director &&
-        lhs.actor == rhs.actor &&
-        lhs.pubDate == rhs.pubDate &&
-        lhs.userRating == rhs.userRating
+        return lhs.id == rhs.id
     }
 }
 
 class FilmList {
-    private let id: UUID
+    private let genreId: UUID
     fileprivate let filmsRelay: BehaviorRelay<[Film]> = BehaviorRelay(value: [])
     var films: [Film] {
         filmsRelay.value
     }
     
-    init(id: UUID) {
-        self.id = id
+    init(genreId: UUID) {
+        self.genreId = genreId
     }
     
     func fetch(_ genres: [Film]?) {
@@ -90,6 +86,14 @@ class FilmList {
         var cached = filmsRelay.value
         cached.append(film)
         filmsRelay.accept(cached)
+    }
+    
+    fileprivate func update(_ film: Film) {
+        var cached = filmsRelay.value
+        if let index = cached.firstIndex(where: { $0.id == film.id }) {
+            cached[index] = film
+            filmsRelay.accept(cached)
+        }
     }
 }
 
@@ -118,7 +122,7 @@ class FilmsManager {
         guard let id = selectedGenreRelay.value else { return .empty() }
         
         if filmsDic[id] == nil {
-            filmsDic[id] = FilmList(id: id)
+            filmsDic[id] = FilmList(genreId: id)
         }
         return filmsDic[id]!.filmsRelay.asObservable()
     }
@@ -127,5 +131,11 @@ class FilmsManager {
         guard let id = selectedGenreRelay.value else { return }
         
         filmsDic[id]?.add(film)
+    }
+    
+    func update(_ film: Film) {
+        guard let id = selectedGenreRelay.value else { return }
+        
+        filmsDic[id]?.update(film)
     }
 }

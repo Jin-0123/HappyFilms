@@ -15,11 +15,13 @@ class FilmListViewModel: ViewModelType {
     enum Actions {
         case ignore
         case showAddFilm1
+        case showDetail(Film)
         case showSortSheet
         case selectedSortOption(SortOption)
     }
     
     struct Inputs {
+        let tapFilm: Observable<Film>
         let tapAdd: Observable<Void>
         let tapSortButton: Observable<Void>
         let selectSortOption: Observable<SortOption?>
@@ -77,6 +79,11 @@ class FilmListViewModel: ViewModelType {
     func bind(_ inputs: Inputs) {
         inputs.tapAdd
             .map { .showAddFilm1 }
+            .bind(to: state.action)
+            .disposed(by: disposeBag)
+        
+        inputs.tapFilm
+            .map { .showDetail($0) }
             .bind(to: state.action)
             .disposed(by: disposeBag)
         
