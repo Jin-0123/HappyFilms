@@ -54,7 +54,9 @@ class FilmDetailViewController: UIViewController {
         // Output
         viewModel.outputs.film.drive(onNext: { [weak self] film in
             guard let self = self else { return }
-            self.imageView.kf.setImage(with: URL(string: film.image))
+            let imageURL = URL(string: film.image)
+            self.imageView.kf.setImage(with: imageURL)
+            self.imageView.isHidden = imageURL == nil
             self.directorLabel.text = film.director.prettyNames
             self.actorsLabel.text = film.actor.prettyNames
             self.pubDateLabel.text = "\(film.prettyTitle)(\(film.pubDate))"
