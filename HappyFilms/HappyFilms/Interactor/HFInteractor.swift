@@ -16,12 +16,16 @@ class HFInteractor {
         self.interface = interface
     }
     
-    func getGenres() -> [Genre]? {
+    func getGenres() -> [Genre] {
         interface.getGenres()
     }
     
-    func setGenres(_ genres: [Genre]) {
-        interface.setGenres(genres)
+    func addGenre(_ genre: Genre) {
+        interface.addGenre(genre)
+    }
+    
+    func updateGenre(id: String, isOn: Bool) {
+        interface.updateGenre(id: id, isOn: isOn)
     }
     
     func searchFilms(_ keyword: String) -> Observable<[Film]?> {

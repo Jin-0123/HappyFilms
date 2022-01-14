@@ -30,7 +30,7 @@ enum SortOption: Int, CaseIterable {
 }
 
 struct Film: Equatable {
-    let id: UUID = UUID()
+    let id: UUID
     let title: String
     let image: String
     let director: String
@@ -52,6 +52,7 @@ struct Film: Equatable {
     }
     
     init(from dto: FilmItemDTO) {
+        id = UUID()
         title = dto.title
         image = dto.image
         director = dto.director

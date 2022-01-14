@@ -22,15 +22,15 @@
                         <rect key="frame" x="16" y="0.0" width="263.5" height="44"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5b-mB-hK6">
-                                <rect key="frame" x="0.0" y="0.0" width="48" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="LnH-m1-Cqf"/>
+                                    <constraint firstAttribute="width" constant="25" id="LnH-m1-Cqf"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="🤍"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="🤍"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOQ-KJ-zVE">
-                                <rect key="frame" x="48" y="0.0" width="115.5" height="44"/>
+                                <rect key="frame" x="25" y="0.0" width="138.5" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

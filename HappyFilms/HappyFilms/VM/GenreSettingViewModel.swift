@@ -63,8 +63,9 @@ class GenreSettingViewModel: ViewModelType {
         inputs.tapAddConfirm
             .do(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.genresManager.add($0)
-                self.hfInteractor.setGenres(self.genresManager.genres)
+                let genre = Genre(id: UUID(), title: $0, isOn: true, saveDate: Date())
+                self.genresManager.add(genre)
+                self.hfInteractor.addGenre(genre)
             })
             .map { _ in .refresh }
             .bind(to: state.action)
@@ -74,11 +75,10 @@ class GenreSettingViewModel: ViewModelType {
             .do(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.genresManager.toggle($0.0, isOn: $0.1)
-                self.hfInteractor.setGenres(self.genresManager.genres)
+                self.hfInteractor.updateGenre(id: $0.0.uuidString, isOn: $0.1)
             })
             .map { _ in .ignore }
             .bind(to: state.action)
             .disposed(by: disposeBag)
-            
     }
 }

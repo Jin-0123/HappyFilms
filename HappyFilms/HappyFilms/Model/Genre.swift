@@ -11,9 +11,10 @@ import RxSwift
 import RxSwiftExt
 
 struct Genre: Equatable {
-    let id: UUID = UUID()
+    let id: UUID
     let title: String
     var isOn: Bool
+    var saveDate: Date?
     
     static func == (lhs: Genre, rhs: Genre) -> Bool {
         return lhs.id == rhs.id
@@ -35,9 +36,9 @@ class GenresManager {
         genresRelay.accept(genres ?? [])
     }
     
-    func add(_ genre: String) {
+    func add(_ genre: Genre) {
         var cached = genresRelay.value
-        cached.append(Genre(title: genre, isOn: true))
+        cached.append(genre)
         genresRelay.accept(cached)
     }
     

@@ -59,6 +59,7 @@ class MyFilmsNoteViewController: UIViewController {
             switch action {
             case .showFilmsList(let genre):
                 FilmListViewController.push(on: self, genre: genre)
+            default: break
             }
         }).disposed(by: disposeBag)
     }

@@ -13,6 +13,7 @@ import RxSwiftExt
 class MyFilmsNoteViewModel: ViewModelType {
         
     enum Actions {
+        case ignore
         case showFilmsList(Genre)
     }
     
